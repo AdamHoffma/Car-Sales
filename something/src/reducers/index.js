@@ -20,7 +20,11 @@ export const Reducer = (state = initialState, action) => {
       case 'ADD_FEATURE':
         return {
           ...state,
-          features: [...state.car.features, action.payload]
+          car: {
+            ...state.car,
+            features: [...state.car.features, action.payload]
+          }
+          
         }
     
     case 'REMOVE_FEATURE':

@@ -6,8 +6,9 @@ import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import { removeFeature, addFeature} from './Actions'
 
-const App = (props) => {
-  console.log("state", props)
+
+const App = ({state, removeFeature, addFeature}) => {
+  console.log("state", state)
  
 
   
@@ -15,12 +16,12 @@ const App = (props) => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={props.state.car} />
-        <AddedFeatures removeFeature={removeFeature} car={props.state.car} />
+        <Header car={state.car} />
+        <AddedFeatures removeFeature={removeFeature} car={state.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures addFeature={addFeature} store={props.state.store} />
-        <Total /*car={props.state.care} additionalPrice={props.state.additionalPrice} *//>
+        <AdditionalFeatures addFeature={addFeature} store={state.store} />
+        <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
   );
